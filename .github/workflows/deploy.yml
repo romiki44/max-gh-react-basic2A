@@ -10,25 +10,29 @@ jobs:
         run: npm ci
       - name: Run lint check
         run: npm run lint
-  test:
-    needs: [lint]
-    runs-on: ubuntu-22.04
-    steps:
-      - name: Get code
-        uses: actions/checkout@v3
-      - name: Install dependencies
-        run: npm ci
       - name: Run tests
         run: npm run test
-  deploy:
-    needs: [test]
-    runs-on: ubuntu-22.04
-    steps:
-      - name: Get code
-        uses: actions/checkout@v3
-      - name: Install dependencies
-        run: npm ci
-      - name: Build project
-        run: npm run build
-      - name: Deploy
-        run: echo "Deploying..."
+      - name: Deploy project
+        run: echo "Depolying..."
+  # test:
+  #   needs: [lint]
+  #   runs-on: ubuntu-22.04
+  #   steps:
+  #     - name: Get code
+  #       uses: actions/checkout@v3
+  #     - name: Install dependencies
+  #       run: npm ci
+  #     - name: Run tests
+  #       run: npm run test
+  # deploy:
+  #   needs: [test]
+  #   runs-on: ubuntu-22.04
+  #   steps:
+  #     - name: Get code
+  #       uses: actions/checkout@v3
+  #     - name: Install dependencies
+  #       run: npm ci
+  #     - name: Build project
+  #       run: npm run build
+  #     - name: Deploy
+  #       run: echo "Deploying..."
